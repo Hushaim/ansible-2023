@@ -1,0 +1,12 @@
+- hosts: all
+  tasks:
+  - name: install apache
+    yum:
+      name: httpd
+      state: present 
+    notify: Restart httpd 
+  handlers: 
+  - name: Restart httpd
+    service:
+      name: httpd
+      state: restarted  
