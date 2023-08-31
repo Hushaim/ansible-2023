@@ -1,0 +1,28 @@
+- hosts: all
+  tasks:
+  - name: install packages
+    yum:
+      name:
+       - httpd
+       - wget
+       - mysql
+       -php
+  - name: start the service
+    service:
+      name: httpd
+      state: started
+      enabled: yes
+  - name: Download foo.conf
+    get_url:
+      url: http://wordpress.latest.zip
+      dest: /tmp
+  - name: Extract foo.tgz into /var/lib/foo
+  unarchive:
+    src: /tmp/latest.zip
+    dest: /var/www/html       
+  - name: Change file ownership, group and permissions
+    file:
+      path: /var/www/html
+      owner: apache
+      group: apache
+      mode: '0644

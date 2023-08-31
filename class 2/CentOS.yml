@@ -1,0 +1,6 @@
+- debug:
+    msg: "hello from centos"
+- name: install apache
+  yum:
+      name: httpd
+      state: present 
