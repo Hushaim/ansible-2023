@@ -1,0 +1,4 @@
+ - hosts: all
+   tasks:
+   - debugs:
+      msg: "0S is: {{ ansible_os_family }}""

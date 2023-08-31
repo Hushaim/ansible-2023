@@ -2,11 +2,23 @@
   tasks:
   - name: install apache
     yum:
-      name: httpd
+      name: tree
       state: present 
-    notify: Restart httpd 
+    notify: Restart httpd
+  
+  - name: install apache
+    yum:
+      name: git
+      state: present 
+    notify: install wget 
+     
   handlers: 
   - name: Restart httpd
     service:
       name: httpd
       state: restarted  
+
+  - name: install wget 
+    yum:
+      name: wget
+      state: present
