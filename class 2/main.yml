@@ -2,11 +2,11 @@
   tasks:
   - name: install apache
     yum:
-      name: tree
+      name: httpd
       state: present 
     notify: Restart httpd
   
-  - name: install apache
+  - name: install git
     yum:
       name: git
       state: present 
